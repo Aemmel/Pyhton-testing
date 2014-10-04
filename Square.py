@@ -1,9 +1,9 @@
 def squares(n):
-	a = 1
+	a = 0
 	while a != n:
-		print(a ** 2,  end=' ')
-		a += 1
+		a+=1
+		print(a ** 2, end=' ')
 	print()
 
 #test
-squares(5)#output: 1 2 9 16 25
+squares(5) #output: 1 2 9 16 25
