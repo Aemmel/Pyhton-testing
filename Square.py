@@ -1,6 +1,6 @@
 def squares(n):
 	a = 1
-	while a <= n:
+	while a != n:
 		print(a ** 2,  end=' ')
 		a += 1
 	print()
