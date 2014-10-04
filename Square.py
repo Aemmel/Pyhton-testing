@@ -6,4 +6,4 @@ def squares(n):
 	print()
 
 #test
-squares(5) #output: 1 2 9 16 25
+squares(5) #output: 1 4 9 16 25
