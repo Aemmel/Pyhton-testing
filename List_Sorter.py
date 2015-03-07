@@ -9,7 +9,7 @@ __author__ = 'Emil Donkersloot'
 
 def main():
     var_inp = "" #def
-    ul = []
+    ul = [] #def
     while var_inp.lower() != "stop":
         try:
             var_inp = input("Write number or 'stop': ")
