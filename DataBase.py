@@ -14,10 +14,6 @@ class DataBase:
 		"""open a file from path for reading and writing"""
 		return open(path, 'r+')
 
-	def printFile(self):
-		"""print the raw file"""
-		print(self.file.read())
-
 	def loadDB(self):
 		"""Load the database from the file and put it in self.list"""
 		line = {
@@ -52,7 +48,34 @@ class DataBase:
 
 	def searchForName(self, name):
 		"""get the line by searching for the name"""
-		pass
+		line_num = 0
+
+		for line_num, line in enumerate(self.list):
+			if line['name'] == name:
+				break
+
+		#return self.printLine(line)
+		print(line_num)
+
+	def addRow(self, dictionary):
+		"""add a row with a fitting dictionary"""
+		pre_def_dict = {
+			'name': "",
+			'age': int,
+			'country': "",
+			'sex': bool
+		}
+
+		if dictionary.keys() != pre_def_dict.keys():
+			return False
+
+		self.list.append(copy.deepcopy(dictionary))
+		self.updateFile()
+		return True
+
+	def printFile(self):
+		"""print the raw file"""
+		print(self.file.read())
 
 	def printDB(self):
 		"""print the DB in the following order: name, age, country, sex"""
@@ -65,11 +88,23 @@ class DataBase:
 				print("Sex: female", end=' ')
 			print("Country: " + x['country'])
 
+	def printLine(self, line):
+		"""print a specific line, arg must be int"""
+		pass
+
+	def updateFile(self):
+		"""updates the file -> checking if the file equals the list, if not change the file"""
+		pass
+
+	def updateList(self):
+		"""update the list -> checking if the list equals the file, if not change the list"""
+		pass
+
 
 
 def main():
 	db = DataBase("C:/Users/Emil Donkersloot/Desktop/db_1.txt") #load the file
-	db.printDB() #print the whole database  (not raw)
+	db.searchForName("Thomas Schnösel")
 
 
 if __name__ == '__main__':
